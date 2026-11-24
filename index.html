@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DamirStore — durable toys for happy dogs.">
+
+    <link href="styles/style.css?v=fetch-card-tone" rel="stylesheet">
+
+    <title>DamirStore — Toys for Happy Dogs</title>
+
+    <script src="scripts/app.js?v=editorial-20261124" defer></script>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <a class="site-logo" href="#home" aria-label="DamirStore home">
+            <img src="icons/logo.png" alt="">
+            <span>DamirStore</span>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+            <a href="#home" data-route="home">Home</a>
+            <a href="#catalog" data-route="catalog">Catalog</a>
+            <a href="#about" data-route="about">About Us</a>
+        </nav>
+
+        <div class="header-group">
+            <button class="search-button" type="button" aria-label="Search">
+                <img src="icons/search-button.svg" alt="">
+                <span>Search</span>
+            </button>
+
+            <button class="cart-button" type="button" aria-label="Open cart" aria-expanded="false" aria-controls="cart-drawer" aria-haspopup="dialog">
+                <img src="icons/cart-button.svg" alt="">
+                <span>Cart</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== CART ===== -->
+    <div class="cart-overlay" aria-hidden="true"></div>
+
+    <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true" inert>
+        <div class="cart-header">
+            <div>
+                <h2 id="cart-title">Your Cart</h2>
+            </div>
+
+            <button class="cart-close" type="button" aria-label="Close cart">
+                <img src="icons/x.svg" alt="">
+            </button>
+        </div>
+
+        <div class="cart-items">
+            <div class="cart-empty">
+                <p>Your cart is empty</p>
+                <a href="#catalog">Browse the catalog</a>
+            </div>
+        </div>
+
+        <div class="cart-footer">
+            <p><span>Total</span><strong>$0.00</strong></p>
+            <button class="checkout-button" type="button" disabled>Checkout</button>
+        </div>
+    </aside>
+
+    <main>
+        <!-- ====================================== -->
+        <!-- ============ HOME VIEW =============== -->
+        <!-- ====================================== -->
+        <div id="home-view">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 tabindex="-1">For the love <em>of dogs.</em></h1>
+                    <p>Toys for playtime, gear for walks, and a soft place to land after both.</p>
+                    <div class="home-hero-actions">
+                        <a class="hero-button" href="#catalog">Shop the catalog</a>
+                        <a class="home-bestsellers-link" href="#best-sellers">Best Sellers</a>
+                    </div>
+                </div>
+                <div class="home-hero-art">
+                    <img src="images/dog.png" width="1389" height="1132" alt="Happy golden retriever">
+                </div>
+            </section>
+
+            <section class="best-sellers" id="best-sellers">
+                <div class="section-heading">
+                    <h2 tabindex="-1">Best Sellers</h2>
+                    <a class="home-catalog-link" href="#catalog">View catalog</a>
+                </div>
+
+                <div class="products-track">
+                    <article class="product-card">
+                        <img src="images/red-bone.png" alt="Red rubber bone dog toy">
+                        <h3>Rubber Bone</h3>
+                        <p class="product-price">$6.00</p>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/rope.png" alt="Rope dog toy">
+                        <h3>Rope Toy</h3>
+                        <p class="product-price">$5.00</p>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/ball.png" alt="Blue dog ball">
+                        <h3>Dog Ball</h3>
+                        <p class="product-price">$4.00</p>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/benebone.jpg" alt="Benebone chew toy">
+                        <h3>Benebone Chew</h3>
+                        <p class="product-price">$12.00</p>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/crocodile.jpg" alt="Crocodile dog toy">
+                        <h3>Crocodile Toy</h3>
+                        <p class="product-price">$9.00</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <section class="benefits" aria-label="Store benefits">
+                <div class="benefit">
+                    <img src="icons/shield-check.svg" alt="">
+                    <span>Safe Materials</span>
+                </div>
+                <div class="benefit">
+                    <img src="icons/van.svg" alt="">
+                    <span>Fast Delivery</span>
+                </div>
+                <div class="benefit">
+                    <img src="icons/rotate-ccw.svg" alt="">
+                    <span>Easy Returns</span>
+                </div>
+            </section>
+        </div>
+
+        <!-- ====================================== -->
+        <!-- =========== CATALOG VIEW ============= -->
+        <!-- ====================================== -->
+        <section id="catalog-view" class="catalog-view" hidden>
+            <div id="catalog-overview">
+                <header class="catalog-intro">
+                    <h1 tabindex="-1">Shop by <em>category.</em></h1>
+                    <div class="catalog-search" role="search" aria-label="Catalog categories">
+                        <img src="icons/search-button.svg" alt="">
+                        <input id="category-search" type="search" aria-label="Find a category" placeholder="Find a category" autocomplete="off">
+                        <button type="button" id="clear-category-search" hidden>Clear</button>
+                    </div>
+                </header>
+                <p id="category-search-status" class="visually-hidden" role="status"></p>
+                <div class="category-grid" id="category-grid"></div>
+                <p id="category-search-empty" class="category-empty" hidden>No matching categories. Try another search.</p>
+            </div>
+            <div id="category-detail" hidden></div>
+        </section>
+
+        <!-- ====================================== -->
+        <!-- ============ ABOUT VIEW ============== -->
+        <!-- ====================================== -->
+        <section id="about-view" class="about-view" hidden>
+            <div class="about-shell">
+                <section class="about-hero" aria-labelledby="about-title">
+                    <div class="about-hero-copy">
+                        <h1 id="about-title" tabindex="-1">We make <em>playtime</em> impossible to ignore.</h1>
+                        <p>Thoughtful toys for curious noses, strong jaws and tails that never stop moving.</p>
+
+                        <a class="about-cta" href="#catalog/toys">Explore the toys</a>
+                    </div>
+
+                    <div class="about-visual" aria-label="Happy dog surrounded by DamirStore toys">
+                        <span class="orbit orbit-one" aria-hidden="true"></span>
+                        <span class="orbit orbit-two" aria-hidden="true"></span>
+                        <span class="spark spark-one" aria-hidden="true">✦</span>
+                        <span class="spark spark-two" aria-hidden="true">✦</span>
+
+                        <img class="about-dog" src="images/dog.png" alt="Happy golden retriever">
+                        <img class="floating-toy floating-bone" src="images/red-bone.png" alt="">
+                        <img class="floating-toy floating-rope" src="images/rope.png" alt="">
+                        <img class="floating-toy floating-ball" src="images/ball.png" alt="">
+                    </div>
+                </section>
+
+                <section class="about-story" aria-labelledby="story-title">
+                    <div class="story-heading">
+                        <h2 id="story-title">Born for the<br><em>zoomies.</em></h2>
+                    </div>
+
+                    <div class="story-copy">
+                        <p class="story-lead">Dogs don't need more stuff. They need better reasons to run, tug, chew and come back for one more round.</p>
+                        <p>That's the idea behind DamirStore: a focused collection of dog toys chosen for real everyday play — simple, energetic and joyful.</p>
+                        <p>From durable chews to ropes and bounce-ready balls, everything starts with one question: <strong>will this make playtime better?</strong></p>
+                    </div>
+
+                    <blockquote class="story-quote">
+                        <span>“</span>
+                        <p>A tired dog is good.<br>A happy dog is better.</p>
+                        <cite>— THE DAMIRSTORE RULE</cite>
+                    </blockquote>
+                </section>
+
+                <section class="about-values" aria-labelledby="values-title">
+                    <div class="values-heading">
+                        <div>
+                            <h2 id="values-title">Ways to <em>play.</em></h2>
+                        </div>
+                    </div>
+
+                    <div class="values-grid">
+                        <article class="value-card value-card-orange">
+                            <div class="value-image">
+                                <img src="images/red-bone.png" alt="Red rubber chew bone">
+                            </div>
+                            <div class="value-copy">
+                                <h3>Chew</h3>
+                                <p>For strong jaws and focused afternoons.</p>
+                            </div>
+                        </article>
+
+                        <article class="value-card value-card-cream">
+                            <div class="value-image">
+                                <img src="images/rope.png" alt="Colorful rope toy">
+                            </div>
+                            <div class="value-copy">
+                                <h3>Tug</h3>
+                                <p>For games that are better together.</p>
+                            </div>
+                        </article>
+
+                        <article class="value-card value-card-linen">
+                            <div class="value-image">
+                                <img src="images/ball.png" alt="Blue textured dog ball">
+                            </div>
+                            <div class="value-copy">
+                                <h3>Fetch</h3>
+                                <p>For one more throw. And another.</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="about-contact" aria-labelledby="contact-title">
+                    <div>
+                        <h2 id="contact-title">Let's talk<br><em>dogs.</em></h2>
+                    </div>
+
+                    <div class="contact-copy">
+                        <p>Questions about a toy, an order, or what your professional chewer might like?</p>
+                        <a href="mailto:hello@damirstore.example">hello@damirstore.example</a>
+                        <a href="tel:+16175550142">+1 (617) 555-0142</a>
+                    </div>
+
+                    <span class="contact-mark" aria-hidden="true">✳</span>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-brand">
+            <h2>DamirStore</h2>
+            <p>Toys for Happy Dogs</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Navigation</h3>
+            <a href="#home">Home</a>
+            <a href="#catalog">Catalog</a>
+            <a href="#about">About Us</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <div class="footer-contact"><span>☎</span><a href="tel:+16175550142">+1 (617) 555-0142</a></div>
+            <div class="footer-contact"><span>✉</span><a href="mailto:hello@damirstore.example">hello@damirstore.example</a></div>
+            <div class="footer-contact"><span>⌖</span><span>Boston, MA, USA</span></div>
+        </div>
+
+        <div class="footer-column">
+            <h3>Follow Us</h3>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/" aria-label="Instagram"><img src="icons/brand-instagram.svg" alt=""></a>
+                <a href="https://telegram.org/" aria-label="Telegram"><img src="icons/brand-telegram.svg" alt=""></a>
+                <a href="https://www.youtube.com/" aria-label="YouTube"><img src="icons/brand-youtube.svg" alt=""></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
